@@ -1,0 +1,19 @@
+CREATE SCHEMA `harunsaranovic_newswebsite`;
+
+CREATE TABLE `harunsaranovic_newswebsite`.`users` (
+  `user_id` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(30) NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `roles` VARCHAR(60) NOT NULL DEFAULT 'USER',
+  PRIMARY KEY (`user_id`));
+
+CREATE TABLE `harunsaranovic_newswebsite`.`news` (
+  `news_id` INT NOT NULL,
+  `viewers` VARCHAR(100) NULL,
+  `title` VARCHAR(60) NULL,
+  `content` VARCHAR(1000) NULL,
+  `date` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`news_id`));
+
+INSERT INTO `harunsaranovic_newswebsite`.`users` (`username`, `password`, `roles`) VALUES ('admin', 'admin', 'ADMIN,USER');
+INSERT INTO `harunsaranovic_newswebsite`.`users` (`username`, `password`, `roles`) VALUES ('user', 'user', 'USER');

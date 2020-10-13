@@ -4,15 +4,18 @@
 
 ##### Run instructions
 
+`ng serve`
+runs on port: _http://localhost:4200_
+
 ##### Database
 
 ##### Login info
 
-**Admin user**
+**Administrator user**
 Username: admin
 Password: admin
 
-**User**
+**Public user**
 Username: user
 Password: user
 

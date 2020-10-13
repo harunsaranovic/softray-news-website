@@ -8,11 +8,6 @@
 # Dependencies
 frontend/node_modules
 
-# Cordova
-/www
-/plugins
-/platforms
-
 # IDEs and editors
 .idea/*
 !.idea/runConfigurations/
@@ -33,8 +28,8 @@ xcuserdata/
 !.vscode/extensions.json
 
 # Maven
-/target
-/log
+backend/target
+backend/log
 
 # Misc
 /.sass-cache
