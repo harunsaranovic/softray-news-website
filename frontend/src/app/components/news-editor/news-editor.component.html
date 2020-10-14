@@ -1,0 +1,11 @@
+<div class="main">
+  <h1>News Editor</h1>
+  <div class="edit-wrapper">
+    <div class="editor">
+      <h5>{{ news.date }}</h5>
+      <input type="text" class="form-control" id="title" required [(ngModel)]="news.title" name="title" />
+      <input type="text" class="form-control" id="content" required [(ngModel)]="news.content" name="content" /> <br />
+      <input type="submit" name="" (click)="update()" value="Update" />
+    </div>
+  </div>
+</div>

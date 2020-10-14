@@ -1,0 +1,33 @@
+.main {
+  margin: 0px 10%;
+  padding: 70px 100px;
+}
+
+.edit-wrapper {
+  margin-top: 50px;
+}
+
+.edit-news-row {
+  background-color: #fff;
+  padding: 10px 20px;
+  width: 80%;
+  margin-bottom: 5px;
+  border: solid 1px #eee;
+}
+
+h5 {
+  color: #23a984;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+input[type="text"] {
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  background-color: #23a984;
+  color: #fff;
+  border: none;
+  padding: 7px 26px;
+}

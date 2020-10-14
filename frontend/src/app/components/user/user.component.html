@@ -1,0 +1,7 @@
+<div class="container" *ngIf="this.usersService.logedUser == true">
+  <div class="card user">
+    <div class="circle">{{ user.username.charAt(0) }}</div>
+    <h2>{{ user.username }}</h2>
+    <h5>{{ user.email }}</h5>
+  </div>
+</div>

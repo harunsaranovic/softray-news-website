@@ -1,0 +1,10 @@
+<div class="main">
+  <h1>News</h1>
+  <div class="news-placeholder">
+    <div class="news-card" *ngFor="let item of news">
+      <h2>{{ item.title }}</h2>
+      <h5>{{ item.date }}</h5>
+      <span>{{ item.content }}</span>
+    </div>
+  </div>
+</div>
