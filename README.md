@@ -22,7 +22,7 @@ CREATE TABLE harunsaranovic_newswebsite.news ( id INT NOT NULL AUTO_INCREMENT, t
 
 In src/main/resources/application.properties set your database url, username and password
 
-```properties
+```
 spring.datasource.username=root
 spring.datasource.password=root
 ```
@@ -38,6 +38,6 @@ runs on port: _
 
 ## Login info
 
-**Administrator user**
-Username: admin
-Password: admin
+**Administrator user**\
+Username: admin\
+Password: admin\
