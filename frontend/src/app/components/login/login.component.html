@@ -1,43 +1,9 @@
-<!--<div class="container p-5">
-  <div class="row justify-content-center align-items-center">
-    <div class="card text-center w-50">
-      <div class="card-body">
-        <div class="form-group ">
-          <h6 class="card-title ">Email</h6>
-          <input type="email" class="form-control radius" id="exampleInputEmail1" />
-        </div>
-      </div>
-
-      <div class="card-body">
-        <div class="form-group">
-          <h6 class="card-title ">Password</h6>
-          <input type="email" class="form-control radius" id="exampleInputEmail1" />
-        </div>
-      </div>
-
-      <div class="card-body"><a class="btn btn-outline-success text-white login">Log in</a></div>
-
-      <div class="card-body textcolor"><a class="card-link textcolor" routerLink="/register">Register here</a></div>
-    </div>
-  </div>
-</div>
--->
 <div class="form">
   <h2>Login</h2>
 
   <div class="form-group">
-    <label for="email">Email</label>
-    <input
-      type="text"
-      class="form-control"
-      id="email"
-      required
-      [(ngModel)]="loginUser.email"
-      name="email"
-      pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
-      [ngClass]="{ 'is-invalid': loginUserEmail.errors && loginUserEmail.touched }"
-      #loginUserEmail="ngModel"
-    />
+    <label for="email">Username</label>
+    <input type="text" class="form-control" id="username" required [(ngModel)]="loginUser.username" name="username" />
     <label for="password">Password</label>
 
     <input
@@ -50,11 +16,6 @@
       #userPassword="ngModel"
     />
 
-    <div [hidden]="!loginUserEmail.errors?.required" class="invalid-feedback"><h6>Email and password required</h6></div>
-
-    <div [hidden]="!loginUserEmail.errors?.pattern" class="invalid-feedback"><h6>Email is not valid</h6></div>
-
-    <input type="submit" name="" (click)="Login()" value="Login" />
+    <input type="submit" name="" (click)="login()" value="Login" />
   </div>
-  <a class="card-link textcolor" routerLink="/register">Register here</a>
 </div>

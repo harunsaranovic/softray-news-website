@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewsService } from '../../services/news.service';
+import { UsersService } from '../../services/users.service';
 import { News } from '../../models/news';
 import { Router } from '@angular/router';
 
@@ -9,12 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./editnews.component.scss']
 })
 export class EditnewsComponent implements OnInit {
-  constructor(public newsService: NewsService) {}
+  constructor(private newsService: NewsService, private router: Router, private usersService: UsersService) {}
 
-  //News
   news: News[];
 
   ngOnInit() {
+    if (this.usersService.loggedUser == false) this.router.navigate(['/login']);
     this.newsService.getNews().subscribe(news => {
       this.news = news;
       console.log(this.news);

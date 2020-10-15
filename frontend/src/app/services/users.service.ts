@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Users } from '../models/User';
+import { Router } from '@angular/router';
+import { User } from '../models/User';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { login } from '@app/models/login';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-type': 'application/json' })
@@ -12,58 +12,43 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UsersService {
-  url: string = 'http://localhost:3000';
+  url: string = 'http://localhost:8080';
 
-  //User to get info from user logged in
-  user: any = {
-    id: '',
-    email: '',
+  //user to log
+  login: User = {
     username: '',
     password: ''
   };
 
-  //find user by id
-  id: any;
+  loggedUser: boolean = false;
 
-  //user to log
-  login: login = {
-    email: '',
-    password: ''
-  };
+  constructor(private http: HttpClient, private router: Router) {}
 
-  logedUser: boolean = false;
-
-  constructor(private http: HttpClient) {}
-
-  getUsers(): Observable<Users[]> {
-    return this.http.get<Users[]>(`${this.url}/users`);
-  }
-
-  getUserbyID(id: any) {
-    return this.http.get(`${this.url}/users/user/${id}`);
-  }
-
-  addUser(user: Users): Observable<Users> {
-    return this.http.post<Users>(`${this.url}/users/register`, user, httpOptions);
-  }
-
-  deleteUser(id: any) {
-    return this.http.delete(`${this.url}/users/delete/${id}`);
-  }
-
-  loginUser(login: login) {
+  loginUser(login: User) {
+    if (login.username == 'admin' && login.password == 'admin') {
+      this.loggedUser = true;
+      this.login.username = 'admin';
+      this.router.navigate(['/editnews']);
+    }
+    /*
     return this.http.post(`${this.url}/users/login`, login, {
       observe: 'body',
       withCredentials: true,
       headers: new HttpHeaders({ 'Content-type': 'application/json' })
     });
+    */
   }
 
   logoutUser() {
+    this.loggedUser = false;
+    this.login.username = '';
+    this.router.navigate(['/login']);
+    /*
     return this.http.get(`${this.url}/users/logout`, {
       observe: 'body',
       withCredentials: true,
       headers: new HttpHeaders({ 'Content-type': 'application/json' })
     });
+    */
   }
 }

@@ -13,10 +13,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
-import { MessagesComponent } from './components/messages/messages.component';
-import { RegisterComponent } from './components/register/register.component';
 import { UsersService } from '@app/services/users.service';
-import { UserComponent } from './components/user/user.component';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { NewsComponent } from './components/news/news.component';
 import { EditnewsComponent } from './components/editnews/editnews.component';
@@ -41,9 +38,6 @@ import { AddNewsComponent } from './components/add-news/add-news.component';
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    MessagesComponent,
-    RegisterComponent,
-    UserComponent,
     NewsComponent,
     EditnewsComponent,
     NewsEditorComponent,

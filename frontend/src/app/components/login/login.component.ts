@@ -1,8 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from '@app/services/users.service';
-import { login } from '../../models/login';
-import { Users } from '@app/models/User';
+import { User } from '@app/models/User';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
 @Component({
@@ -19,19 +18,21 @@ export class LoginComponent implements OnInit {
   ) {}
 
   //user to bind data for login
-  loginUser: login = {
-    email: '',
+  loginUser: User = {
+    username: '',
     password: ''
   };
 
   ngOnInit() {}
 
-  Login() {
+  login() {
+    this.usersService.loginUser(this.loginUser);
+    /*
     this.usersService.loginUser(this.loginUser).subscribe(
       user => {
         this.usersService.user = user;
         this.usersService.id = this.usersService.user._id;
-        this.usersService.logedUser = true;
+        this.usersService.loggedUser = true;
         this.flashMessagesService.show('Login Success', { cssClass: 'alert-success', timeout: 2500 });
         this.router.navigate(['/user']);
       },
@@ -39,5 +40,6 @@ export class LoginComponent implements OnInit {
         this.flashMessagesService.show('User does not exists', { cssClass: 'alert-danger', timeout: 2500 });
       }
     );
+    */
   }
 }
