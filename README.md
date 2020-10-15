@@ -15,18 +15,12 @@ CREATE TABLE harunsaranovic_newswebsite.users ( user_id INT NOT NULL AUTO_INCREM
 
 CREATE TABLE harunsaranovic_newswebsite.news ( id INT NOT NULL AUTO_INCREMENT, title VARCHAR(60) NULL, content VARCHAR(1000) NULL, date DATETIME DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (id));
 ```
-\
 
-```
-
-\
 In src/main/resources/application.properties set your database url, username and password
 
 ## Frontend
 
-runs on port: _
-
-**Administrator u_
+runs on port: _localhost:4200_
 
 ## Login info
 
