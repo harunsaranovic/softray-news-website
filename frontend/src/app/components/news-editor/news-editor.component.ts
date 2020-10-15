@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { NewsService } from '../../services/news.service';
 import { News } from '../../models/news';
@@ -9,21 +10,28 @@ import { News } from '../../models/news';
   styleUrls: ['./news-editor.component.scss']
 })
 export class NewsEditorComponent implements OnInit {
-  constructor(private route: ActivatedRoute, public newsService: NewsService) {}
+
+  constructor(
+    private route: ActivatedRoute,
+    public newsService: NewsService,
+    private router: Router
+    ) {}
 
   news: News;
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       const id = params.id;
-      console.log(params);
       this.newsService.getSingleNews(id).subscribe(news => {
         this.news = news;
       });
     });
   }
-
+  
   update() {
-    this.newsService.updateNews(this.news);
+    console.log(this.news);
+    this.newsService.updateNews(this.news).subscribe(data => {
+      this.router.navigate(['/editnews']);
+    });
   }
 }

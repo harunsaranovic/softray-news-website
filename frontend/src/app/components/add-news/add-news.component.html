@@ -1,0 +1,10 @@
+<div class="main">
+  <h1>Add News</h1>
+  <div class="edit-wrapper">
+    <div class="editor">
+      <input type="text" class="form-control" id="title" required [(ngModel)]="title" name="title" />
+      <input type="text" class="form-control" id="content" required [(ngModel)]="content" name="content" /> <br />
+      <input type="submit" name="" (click)="add()" value="Add" />
+    </div>
+  </div>
+</div>

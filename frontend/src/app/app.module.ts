@@ -21,6 +21,7 @@ import { FlashMessagesModule } from 'angular2-flash-messages';
 import { NewsComponent } from './components/news/news.component';
 import { EditnewsComponent } from './components/editnews/editnews.component';
 import { NewsEditorComponent } from './components/news-editor/news-editor.component';
+import { AddNewsComponent } from './components/add-news/add-news.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { NewsEditorComponent } from './components/news-editor/news-editor.compon
     UserComponent,
     NewsComponent,
     EditnewsComponent,
-    NewsEditorComponent
+    NewsEditorComponent,
+    AddNewsComponent
   ],
   providers: [UsersService],
   bootstrap: [AppComponent]

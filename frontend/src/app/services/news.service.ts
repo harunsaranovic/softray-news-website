@@ -21,20 +21,20 @@ export class NewsService {
     date: null
   };
 
-  addNews(news: News): Observable<News> {
-    return this.http.post<News>(`${this.url}/news`, news, httpOptions);
+  addNews(news: Object): Observable<News> {
+    return this.http.post<News>(this.url + "/news", news, httpOptions);
   }
 
   getNews(): Observable<News[]> {
-    return this.http.get<News[]>(`${this.url}/allnews`);
+    return this.http.get<News[]>(this.url + "/allnews");
   }
 
   getSingleNews(id: Number): Observable<News> {
-    return this.http.get<News>(`${this.url}/news/${id}`);
+    return this.http.get<News>(this.url + "/news/" + id);
   }
 
-  updateNews(news: News) {
-    this.http.put(`${this.url}/news/${news.id}`, news, httpOptions);
+  updateNews(news: News): Observable<News> {
+    return this.http.put<News>(this.url + "/news/" + news.id, news, httpOptions);
   }
 
   /*
