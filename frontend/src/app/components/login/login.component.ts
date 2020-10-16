@@ -26,20 +26,19 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   login() {
-    this.usersService.loginUser(this.loginUser);
-    /*
     this.usersService.loginUser(this.loginUser).subscribe(
-      user => {
-        this.usersService.user = user;
-        this.usersService.id = this.usersService.user._id;
-        this.usersService.loggedUser = true;
-        this.flashMessagesService.show('Login Success', { cssClass: 'alert-success', timeout: 2500 });
-        this.router.navigate(['/user']);
+      response => {
+        if (response == 'admin') {
+          this.usersService.loggedUser = true;
+          this.flashMessagesService.show('Login Success', { cssClass: 'alert-success', timeout: 2500 });
+          this.router.navigate(['/user']);
+        } else {
+          this.flashMessagesService.show('Wrong credentials', { cssClass: 'alert-danger', timeout: 2500 });
+        }
       },
       err => {
         this.flashMessagesService.show('User does not exists', { cssClass: 'alert-danger', timeout: 2500 });
       }
     );
-    */
   }
 }

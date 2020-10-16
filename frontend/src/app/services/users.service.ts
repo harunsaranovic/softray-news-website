@@ -8,6 +8,10 @@ const httpOptions = {
   headers: new HttpHeaders({ 'Content-type': 'application/json' })
 };
 
+const requestOptions: Object = {
+  responseType: 'text'
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,31 +28,13 @@ export class UsersService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  loginUser(login: User) {
-    if (login.username == 'admin' && login.password == 'admin') {
-      this.loggedUser = true;
-      this.login.username = 'admin';
-      this.router.navigate(['/editnews']);
-    }
-    /*
-    return this.http.post(`${this.url}/users/login`, login, {
-      observe: 'body',
-      withCredentials: true,
-      headers: new HttpHeaders({ 'Content-type': 'application/json' })
-    });
-    */
+  loginUser(login: User): Observable<any> {
+    return this.http.post<any>(this.url + '/login', login, requestOptions);
   }
 
   logoutUser() {
     this.loggedUser = false;
     this.login.username = '';
     this.router.navigate(['/login']);
-    /*
-    return this.http.get(`${this.url}/users/logout`, {
-      observe: 'body',
-      withCredentials: true,
-      headers: new HttpHeaders({ 'Content-type': 'application/json' })
-    });
-    */
   }
 }

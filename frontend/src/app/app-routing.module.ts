@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'addnews', component: AddNewsComponent },
 
   // Fallback when no prior route is matched
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: '**', redirectTo: 'news', pathMatch: 'full' }
 ];
 
 @NgModule({

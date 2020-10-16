@@ -1,7 +1,5 @@
 package backend.softraynewswebsite.login;
 
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,9 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
-import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 @SuppressWarnings("deprecation")
 @EnableWebSecurity
@@ -32,10 +27,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http
 			.authorizeRequests()
 			.antMatchers("/allnews").permitAll()
+			.antMatchers("/login").permitAll()
 			.antMatchers("/news").permitAll()
 			.antMatchers("/news/**").permitAll()
-			//.antMatchers("/news").hasAnyRole("ADMIN", "USER")
-			//.antMatchers("/admin").hasRole("USER")
 			.anyRequest().authenticated()
 			//.and().formLogin();
 			//.and().cors()
